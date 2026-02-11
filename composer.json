@@ -1,0 +1,39 @@
+{
+    "name": "php-architecture-kit/uuid",
+    "description": "UUID Value Object with provider-agnostic facade and optional interoperability with popular UUID libraries.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "email": "patryk.baszak@gmail.com",
+            "name": "Patryk Baszak",
+            "homepage": "https://patrykbaszak.com/"
+        }
+    ],
+    "keywords": [
+        "uuid",
+        "identifier",
+        "ddd",
+        "framework-agnostic"
+    ],
+    "homepage": "https://github.com/php-architecture-kit/uuid",
+    "support": {
+        "issues": "https://github.com/php-architecture-kit/uuid/issues",
+        "source": "https://github.com/php-architecture-kit/uuid"
+    },
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "psr/clock": "^1.0"
+    },
+    "suggest": {
+        "ramsey/uuid": "Allows using Ramsey UUID as provider implementation",
+        "symfony/uid": "Allows using Symfony UID component as provider implementation"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpArchitecture\\Uuid\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
