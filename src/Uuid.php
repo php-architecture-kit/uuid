@@ -71,6 +71,11 @@ class Uuid implements \Stringable
         return new static($value);
     }
 
+    final public static function fromUuid(self $uuid): static
+    {
+        return new static($uuid->value());
+    }
+
     /**
      * Simple factory method for generating a new UUID.
      * 
