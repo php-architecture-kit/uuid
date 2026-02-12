@@ -217,6 +217,10 @@ Uuid::NAMESPACE_X500 // '6ba7b814-9dad-11d1-80b4-00c04fd430c8'
 
 [RFC 9562 - Universally Unique IDentifiers (UUIDs)](https://www.rfc-editor.org/rfc/rfc9562.html)
 
+## Testing
+
+Package is tested with PHPUnit and PHPBench in the [php-architecture-kit/workspace](https://github.com/php-architecture-kit/workspace) project. 
+
 ## License
 
 MIT
