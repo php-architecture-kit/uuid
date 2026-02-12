@@ -93,7 +93,7 @@ final class RamseyUuidProvider extends UuidProvider implements PredefinedProvide
     public function v7(
         ?ClockInterface $clock = null
     ): string {
-        return $this->factory->uuid7($clock?->now() ?? new DateTimeImmutable())->toString();
+        return $this->factory->uuid7($clock?->now() ?? new \DateTimeImmutable())->toString();
     }
 
     public function v8(

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpArchitecture\Uuid;
 
+use DateTimeImmutable;
 use PhpArchitecture\Uuid\Exception\InvalidUuidCreationArgumentException;
 use PhpArchitecture\Uuid\Exception\InvalidUuidException;
 use PhpArchitecture\Uuid\Provider\UuidProviderRegistry;
@@ -16,7 +17,6 @@ class Uuid implements \Stringable
     public const NAMESPACE_URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
     public const NAMESPACE_OID = '6ba7b812-9dad-11d1-80b4-00c04fd430c8';
     public const NAMESPACE_X500 = '6ba7b814-9dad-11d1-80b4-00c04fd430c8';
-
     private string $value;
 
     /**
@@ -477,12 +477,12 @@ class Uuid implements \Stringable
         }
 
         if ($version === 0x7) {
-            $timestampMs = hexdec(substr($this->value, 0, 8) . substr($this->value, 9, 4));
+            $timestampMs = (int) hexdec(substr($this->value, 0, 8) . substr($this->value, 9, 4));
 
             $seconds = intdiv($timestampMs, 1000);
             $microseconds = ($timestampMs % 1000) * 1000;
 
-            return \DateTimeImmutable::createFromFormat('U.u', sprintf('%d.%06d', $seconds, $microseconds));
+            return \DateTimeImmutable::createFromFormat('U.u', sprintf('%d.%06d', $seconds, $microseconds)) ?: null;
         }
 
         return null;
@@ -497,14 +497,11 @@ class Uuid implements \Stringable
      * 
      * Returns version as hexadecimal integer (0x1 through 0x8, or 0x0 or 0xF for non-standard).
      * 
-     * @return 0x0|0x1|0x2|0x3|0x4|0x5|0x6|0x7|0x8|0xf|0xF UUID version in hexadecimal format
-     * 
-     * @psalm-return 0x0|0x1|0x2|0x3|0x4|0x5|0x6|0x7|0x8|0xf|0xF
-     * @phpstan-return 0x0|0x1|0x2|0x3|0x4|0x5|0x6|0x7|0x8|0xf|0xF
+     * @return int 0x0|0x1|0x2|0x3|0x4|0x5|0x6|0x7|0x8|0xf|0xF UUID version in hexadecimal format
      */
     final public function getVersion(): int
     {
-        return hexdec($this->value[14]);
+        return (int) hexdec($this->value[14]);
     }
 
     /**
@@ -526,7 +523,7 @@ class Uuid implements \Stringable
      */
     final public function toBinary(): string
     {
-        return hex2bin(str_replace('-', '', $this->value));
+        return (string) hex2bin(str_replace('-', '', $this->value));
     }
 
     /**
