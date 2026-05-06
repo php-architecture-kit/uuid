@@ -6,4 +6,4 @@ namespace PhpArchitecture\Uuid\Exception;
 
 use LogicException;
 
-final class ArgumentNotSupportedByProviderException extends \LogicException implements UuidException {}
+final class ArgumentNotSupportedByProviderException extends LogicException implements UuidException {}

@@ -6,6 +6,6 @@ namespace PhpArchitecture\Uuid\Exception;
 
 use RuntimeException;
 
-final class InvalidUuidException extends \RuntimeException implements UuidException
+final class InvalidUuidException extends RuntimeException implements UuidException
 {
 }
