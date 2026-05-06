@@ -6,4 +6,4 @@ namespace PhpArchitecture\Uuid\Exception;
 
 use InvalidArgumentException;
 
-final class InvalidUuidCreationArgumentException extends \InvalidArgumentException implements UuidException {}
+final class InvalidUuidCreationArgumentException extends InvalidArgumentException implements UuidException {}

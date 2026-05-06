@@ -6,7 +6,7 @@ namespace PhpArchitecture\Uuid\Exception;
 
 use LogicException;
 
-final class MissingProviderException extends \LogicException implements UuidException 
+final class MissingProviderException extends LogicException implements UuidException 
 {
 
 }

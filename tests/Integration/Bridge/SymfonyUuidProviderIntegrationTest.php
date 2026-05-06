@@ -11,6 +11,7 @@ use PhpArchitecture\Uuid\Uuid;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Psr\Clock\ClockInterface;
+use DateTimeImmutable;
 
 class SymfonyUuidProviderIntegrationTest extends TestCase
 {
@@ -45,7 +46,7 @@ class SymfonyUuidProviderIntegrationTest extends TestCase
     #[Test]
     public function v1RespectsCustomClock(): void
     {
-        $fixedTime = new \DateTimeImmutable('2024-01-15 12:00:00');
+        $fixedTime = new DateTimeImmutable('2024-01-15 12:00:00');
         $clock = $this->createMock(ClockInterface::class);
         $clock->method('now')->willReturn($fixedTime);
 
@@ -180,7 +181,7 @@ class SymfonyUuidProviderIntegrationTest extends TestCase
     #[Test]
     public function v7RespectsCustomClock(): void
     {
-        $fixedTime = new \DateTimeImmutable('2024-06-15 12:00:00');
+        $fixedTime = new DateTimeImmutable('2024-06-15 12:00:00');
         $clock = $this->createMock(ClockInterface::class);
         $clock->method('now')->willReturn($fixedTime);
 

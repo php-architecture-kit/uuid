@@ -12,6 +12,8 @@ use PhpArchitecture\Uuid\Exception\NotSupportedUuidVersionByProviderException;
 use PhpArchitecture\Uuid\Exception\UuidException;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use InvalidArgumentException;
+use RuntimeException;
 
 class ExceptionHierarchyTest extends TestCase
 {
@@ -20,7 +22,7 @@ class ExceptionHierarchyTest extends TestCase
     {
         $exception = new InvalidUuidException('test');
 
-        $this->assertInstanceOf(\RuntimeException::class, $exception);
+        $this->assertInstanceOf(RuntimeException::class, $exception);
     }
 
     #[Test]
@@ -36,7 +38,7 @@ class ExceptionHierarchyTest extends TestCase
     {
         $exception = new InvalidUuidCreationArgumentException('test');
 
-        $this->assertInstanceOf(\InvalidArgumentException::class, $exception);
+        $this->assertInstanceOf(InvalidArgumentException::class, $exception);
     }
 
     #[Test]

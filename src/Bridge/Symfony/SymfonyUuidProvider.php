@@ -9,6 +9,7 @@ use PhpArchitecture\Uuid\Exception\ArgumentNotSupportedByProviderException;
 use PhpArchitecture\Uuid\Exception\NotSupportedUuidVersionByProviderException;
 use PhpArchitecture\Uuid\Provider\UuidProvider;
 use Psr\Clock\ClockInterface;
+use DateTimeImmutable;
 
 final class SymfonyUuidProvider extends UuidProvider implements PredefinedProviderInterface
 {
@@ -31,7 +32,7 @@ final class SymfonyUuidProvider extends UuidProvider implements PredefinedProvid
             throw new ArgumentNotSupportedByProviderException('`symfony/uid` does not support clock sequence as argument for Uuid V1 - use another provider or do not pass clock sequence as argument');
         }
 
-        $dateTime = $clock?->now() ?? new \DateTimeImmutable();
+        $dateTime = $clock?->now() ?? new DateTimeImmutable();
         
         $node = null;
         if ($nodeIdentifier !== null) {
@@ -77,7 +78,7 @@ final class SymfonyUuidProvider extends UuidProvider implements PredefinedProvid
             throw new ArgumentNotSupportedByProviderException('`symfony/uid` does not support clock sequence as argument for Uuid V6 - use another provider or do not pass clock sequence as argument');
         }
 
-        $dateTime = $clock?->now() ?? new \DateTimeImmutable();
+        $dateTime = $clock?->now() ?? new DateTimeImmutable();
         
         $node = null;
         if ($nodeIdentifier !== null) {
@@ -92,7 +93,7 @@ final class SymfonyUuidProvider extends UuidProvider implements PredefinedProvid
     public function v7(
         ?ClockInterface $clock = null
     ): string {
-        $dateTime = $clock?->now() ?? new \DateTimeImmutable();
+        $dateTime = $clock?->now() ?? new DateTimeImmutable();
 
         return \Symfony\Component\Uid\UuidV7::generate($dateTime);
     }

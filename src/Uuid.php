@@ -11,7 +11,7 @@ use PhpArchitecture\Uuid\Provider\UuidProviderRegistry;
 use Psr\Clock\ClockInterface;
 use Stringable;
 
-class Uuid implements \Stringable
+class Uuid implements Stringable
 {
     public const NAMESPACE_DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
     public const NAMESPACE_URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
@@ -450,9 +450,9 @@ class Uuid implements \Stringable
      * Extracts timestamp from time-based UUID (v1, v6, v7).
      * Returns null for non-time-based versions.
      * 
-     * @return \DateTimeImmutable|null
+     * @return DateTimeImmutable|null
      */
-    final public function getTime(): ?\DateTimeImmutable
+    final public function getTime(): ?DateTimeImmutable
     {
         $version = $this->getVersion();
 
@@ -466,7 +466,7 @@ class Uuid implements \Stringable
             $gregorianOffset = 122192928000000000;
             $unixTimestamp = ($timestamp - $gregorianOffset) / 10000000;
 
-            return new \DateTimeImmutable('@' . (int)$unixTimestamp);
+            return new DateTimeImmutable('@' . (int)$unixTimestamp);
         }
 
         if ($version === 0x6) {
@@ -478,7 +478,7 @@ class Uuid implements \Stringable
             $gregorianOffset = 122192928000000000;
             $unixTimestamp = ($timestamp - $gregorianOffset) / 10000000;
 
-            return new \DateTimeImmutable('@' . (int)$unixTimestamp);
+            return new DateTimeImmutable('@' . (int)$unixTimestamp);
         }
 
         if ($version === 0x7) {
@@ -487,7 +487,7 @@ class Uuid implements \Stringable
             $seconds = intdiv($timestampMs, 1000);
             $microseconds = ($timestampMs % 1000) * 1000;
 
-            return \DateTimeImmutable::createFromFormat('U.u', sprintf('%d.%06d', $seconds, $microseconds)) ?: null;
+            return DateTimeImmutable::createFromFormat('U.u', sprintf('%d.%06d', $seconds, $microseconds)) ?: null;
         }
 
         return null;
