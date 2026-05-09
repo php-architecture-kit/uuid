@@ -385,7 +385,7 @@ class Uuid implements Stringable
         return new static('FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF');
     }
 
-    final private function __construct(string $value)
+    protected function __construct(string $value)
     {
         $this->value = $value;
     }
