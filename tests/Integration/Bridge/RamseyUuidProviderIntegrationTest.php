@@ -45,7 +45,7 @@ class RamseyUuidProviderIntegrationTest extends TestCase
     public function v1RespectsCustomClock(): void
     {
         $fixedTime = new DateTimeImmutable('2024-01-15 12:00:00');
-        $clock = $this->createMock(ClockInterface::class);
+        $clock = $this->createStub(ClockInterface::class);
         $clock->method('now')->willReturn($fixedTime);
 
         $uuid1 = $this->provider->v1($clock);

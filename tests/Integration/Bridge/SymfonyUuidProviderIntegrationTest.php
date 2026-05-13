@@ -47,7 +47,7 @@ class SymfonyUuidProviderIntegrationTest extends TestCase
     public function v1RespectsCustomClock(): void
     {
         $fixedTime = new DateTimeImmutable('2024-01-15 12:00:00');
-        $clock = $this->createMock(ClockInterface::class);
+        $clock = $this->createStub(ClockInterface::class);
         $clock->method('now')->willReturn($fixedTime);
 
         $uuid = $this->provider->v1($clock);
@@ -182,7 +182,7 @@ class SymfonyUuidProviderIntegrationTest extends TestCase
     public function v7RespectsCustomClock(): void
     {
         $fixedTime = new DateTimeImmutable('2024-06-15 12:00:00');
-        $clock = $this->createMock(ClockInterface::class);
+        $clock = $this->createStub(ClockInterface::class);
         $clock->method('now')->willReturn($fixedTime);
 
         $uuid = $this->provider->v7($clock);
