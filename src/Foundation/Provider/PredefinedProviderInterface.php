@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpArchitecture\Uuid\Bridge;
+namespace PhpArchitecture\Uuid\Foundation\Provider;
 
 interface PredefinedProviderInterface
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\PhpArchitecture\Uuid\Integration\Bridge;
+namespace PhpArchitecture\Uuid\Tests\Integration\Infrastructure\Bridge;
 
-use PhpArchitecture\Uuid\Bridge\Ramsey\RamseyUuidProvider;
-use PhpArchitecture\Uuid\Uuid;
+use PhpArchitecture\Uuid\Infrastructure\Bridge\Ramsey\RamseyUuidProvider;
+use PhpArchitecture\Uuid\Foundation\Uuid;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Psr\Clock\ClockInterface;

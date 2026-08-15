@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpArchitecture\Uuid;
+namespace PhpArchitecture\Uuid\Foundation;
 
 use DateTimeImmutable;
-use PhpArchitecture\Uuid\Exception\InvalidUuidCreationArgumentException;
-use PhpArchitecture\Uuid\Exception\InvalidUuidException;
-use PhpArchitecture\Uuid\Provider\UuidProviderRegistry;
+use PhpArchitecture\Uuid\Foundation\Exception\InvalidUuidCreationArgumentException;
+use PhpArchitecture\Uuid\Foundation\Exception\InvalidUuidException;
+use PhpArchitecture\Uuid\Foundation\Provider\UuidProviderRegistry;
 use Psr\Clock\ClockInterface;
 use Stringable;
 

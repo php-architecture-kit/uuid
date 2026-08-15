@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpArchitecture\Uuid\Bridge\Symfony;
+namespace PhpArchitecture\Uuid\Infrastructure\Bridge\Symfony;
 
-use PhpArchitecture\Uuid\Bridge\PredefinedProviderInterface;
-use PhpArchitecture\Uuid\Exception\ArgumentNotSupportedByProviderException;
-use PhpArchitecture\Uuid\Exception\NotSupportedUuidVersionByProviderException;
-use PhpArchitecture\Uuid\Provider\UuidProvider;
+use PhpArchitecture\Uuid\Foundation\Provider\PredefinedProviderInterface;
+use PhpArchitecture\Uuid\Foundation\Exception\ArgumentNotSupportedByProviderException;
+use PhpArchitecture\Uuid\Foundation\Exception\NotSupportedUuidVersionByProviderException;
+use PhpArchitecture\Uuid\Foundation\Provider\UuidProvider;
 use Psr\Clock\ClockInterface;
 use DateTimeImmutable;
 

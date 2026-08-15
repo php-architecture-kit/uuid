@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Tests\PhpArchitecture\Uuid\Unit\Exception;
+namespace PhpArchitecture\Uuid\Tests\Unit\Foundation\Exception;
 
-use PhpArchitecture\Uuid\Exception\ArgumentNotSupportedByProviderException;
-use PhpArchitecture\Uuid\Exception\InvalidUuidCreationArgumentException;
-use PhpArchitecture\Uuid\Exception\InvalidUuidException;
-use PhpArchitecture\Uuid\Exception\MissingProviderException;
-use PhpArchitecture\Uuid\Exception\NotSupportedUuidVersionByProviderException;
-use PhpArchitecture\Uuid\Exception\UuidException;
+use PhpArchitecture\Uuid\Foundation\Exception\ArgumentNotSupportedByProviderException;
+use PhpArchitecture\Uuid\Foundation\Exception\InvalidUuidCreationArgumentException;
+use PhpArchitecture\Uuid\Foundation\Exception\InvalidUuidException;
+use PhpArchitecture\Uuid\Foundation\Exception\MissingProviderException;
+use PhpArchitecture\Uuid\Foundation\Exception\NotSupportedUuidVersionByProviderException;
+use PhpArchitecture\Uuid\Foundation\Exception\UuidException;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use InvalidArgumentException;

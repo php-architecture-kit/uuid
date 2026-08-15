@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\PhpArchitecture\Uuid\Unit\Provider;
+namespace PhpArchitecture\Uuid\Tests\Unit\Foundation\Provider;
 
-use PhpArchitecture\Uuid\Provider\UuidProvider;
+use PhpArchitecture\Uuid\Foundation\Provider\UuidProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

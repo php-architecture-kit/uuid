@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpArchitecture\Uuid\Bridge\Ramsey;
+namespace PhpArchitecture\Uuid\Infrastructure\Bridge\Ramsey;
 
 use DateTimeImmutable;
-use PhpArchitecture\Uuid\Bridge\PredefinedProviderInterface;
-use PhpArchitecture\Uuid\Provider\UuidProvider;
+use PhpArchitecture\Uuid\Foundation\Provider\PredefinedProviderInterface;
+use PhpArchitecture\Uuid\Foundation\Provider\UuidProvider;
 use Psr\Clock\ClockInterface;
 
 final class RamseyUuidProvider extends UuidProvider implements PredefinedProviderInterface

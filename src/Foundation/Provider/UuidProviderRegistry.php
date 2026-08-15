@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpArchitecture\Uuid\Provider;
+namespace PhpArchitecture\Uuid\Foundation\Provider;
 
-use PhpArchitecture\Uuid\Bridge\Ramsey\RamseyUuidProvider;
-use PhpArchitecture\Uuid\Bridge\Symfony\SymfonyUuidProvider;
-use PhpArchitecture\Uuid\Bridge\PredefinedProviderInterface;
-use PhpArchitecture\Uuid\Exception\MissingProviderException;
+use PhpArchitecture\Uuid\Infrastructure\Bridge\Ramsey\RamseyUuidProvider;
+use PhpArchitecture\Uuid\Infrastructure\Bridge\Symfony\SymfonyUuidProvider;
+use PhpArchitecture\Uuid\Foundation\Provider\PredefinedProviderInterface;
+use PhpArchitecture\Uuid\Foundation\Exception\MissingProviderException;
 
 final class UuidProviderRegistry
 {

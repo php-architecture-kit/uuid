@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Tests\PhpArchitecture\Uuid\Unit\Provider;
+namespace PhpArchitecture\Uuid\Tests\Unit\Foundation\Provider;
 
-use PhpArchitecture\Uuid\Bridge\Ramsey\RamseyUuidProvider;
-use PhpArchitecture\Uuid\Bridge\Symfony\SymfonyUuidProvider;
-use PhpArchitecture\Uuid\Exception\MissingProviderException;
-use PhpArchitecture\Uuid\Provider\UuidProvider;
-use PhpArchitecture\Uuid\Provider\UuidProviderRegistry;
+use PhpArchitecture\Uuid\Infrastructure\Bridge\Ramsey\RamseyUuidProvider;
+use PhpArchitecture\Uuid\Infrastructure\Bridge\Symfony\SymfonyUuidProvider;
+use PhpArchitecture\Uuid\Foundation\Exception\MissingProviderException;
+use PhpArchitecture\Uuid\Foundation\Provider\UuidProvider;
+use PhpArchitecture\Uuid\Foundation\Provider\UuidProviderRegistry;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

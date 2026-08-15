@@ -30,7 +30,7 @@ composer require symfony/uid
 ## Quick Start
 
 ```php
-use PhpArchitecture\Uuid\Uuid;
+use PhpArchitecture\Uuid\Foundation\Uuid;
 
 // Generate a new UUID (defaults to v7)
 $uuid = Uuid::new();
@@ -59,7 +59,7 @@ $uuid->equals($other); // true/false
 ## Creating Domain-Specific IDs
 
 ```php
-use PhpArchitecture\Uuid\Uuid;
+use PhpArchitecture\Uuid\Foundation\Uuid;
 
 final class UserId extends Uuid
 {

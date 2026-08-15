@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\PhpArchitecture\Uuid\Unit;
+namespace PhpArchitecture\Uuid\Tests\Unit\Foundation;
 
-use PhpArchitecture\Uuid\Exception\InvalidUuidCreationArgumentException;
-use PhpArchitecture\Uuid\Uuid;
+use PhpArchitecture\Uuid\Foundation\Exception\InvalidUuidCreationArgumentException;
+use PhpArchitecture\Uuid\Foundation\Uuid;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpArchitecture\Uuid\Provider;
+namespace PhpArchitecture\Uuid\Foundation\Provider;
 
 use Psr\Clock\ClockInterface;
 

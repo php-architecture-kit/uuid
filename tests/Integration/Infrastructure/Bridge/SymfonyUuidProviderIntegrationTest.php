@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tests\PhpArchitecture\Uuid\Integration\Bridge;
+namespace PhpArchitecture\Uuid\Tests\Integration\Infrastructure\Bridge;
 
-use PhpArchitecture\Uuid\Bridge\Symfony\SymfonyUuidProvider;
-use PhpArchitecture\Uuid\Exception\ArgumentNotSupportedByProviderException;
-use PhpArchitecture\Uuid\Exception\NotSupportedUuidVersionByProviderException;
-use PhpArchitecture\Uuid\Uuid;
+use PhpArchitecture\Uuid\Infrastructure\Bridge\Symfony\SymfonyUuidProvider;
+use PhpArchitecture\Uuid\Foundation\Exception\ArgumentNotSupportedByProviderException;
+use PhpArchitecture\Uuid\Foundation\Exception\NotSupportedUuidVersionByProviderException;
+use PhpArchitecture\Uuid\Foundation\Uuid;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Psr\Clock\ClockInterface;

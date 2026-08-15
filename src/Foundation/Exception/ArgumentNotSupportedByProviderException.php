@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpArchitecture\Uuid\Exception;
+namespace PhpArchitecture\Uuid\Foundation\Exception;
 
 use LogicException;
 
