@@ -58,7 +58,7 @@ class RamseyUuidProviderIntegrationTest extends TestCase
     #[Test]
     public function v1RespectsCustomClockSequence(): void
     {
-        $uuid = $this->provider->v1(clockSequence: 0x1234);
+        $uuid = $this->provider->v1(null, 0x1234);
 
         $this->assertMatchesRegularExpression('/^[0-9a-f]{8}-[0-9a-f]{4}-1[0-9a-f]{3}/', $uuid);
     }
@@ -66,7 +66,7 @@ class RamseyUuidProviderIntegrationTest extends TestCase
     #[Test]
     public function v1RespectsCustomNodeIdentifier6Bytes(): void
     {
-        $uuid = $this->provider->v1(nodeIdentifier: "\x01\x02\x03\x04\x05\x06");
+        $uuid = $this->provider->v1(null, null, "\x01\x02\x03\x04\x05\x06");
 
         $this->assertStringEndsWith('010203040506', $uuid);
     }
@@ -74,7 +74,7 @@ class RamseyUuidProviderIntegrationTest extends TestCase
     #[Test]
     public function v1RespectsCustomNodeIdentifier12Hex(): void
     {
-        $uuid = $this->provider->v1(nodeIdentifier: 'aabbccddeeff');
+        $uuid = $this->provider->v1(null, null, 'aabbccddeeff');
 
         $this->assertStringEndsWith('aabbccddeeff', $uuid);
     }
@@ -162,7 +162,7 @@ class RamseyUuidProviderIntegrationTest extends TestCase
     #[Test]
     public function v6RespectsCustomNodeIdentifier(): void
     {
-        $uuid = $this->provider->v6(nodeIdentifier: 'ffeeddccbbaa');
+        $uuid = $this->provider->v6(null, null, 'ffeeddccbbaa');
 
         $this->assertStringEndsWith('ffeeddccbbaa', $uuid);
     }
