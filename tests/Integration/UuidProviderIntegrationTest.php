@@ -70,7 +70,7 @@ class UuidProviderIntegrationTest extends TestCase
     {
         UuidProviderRegistry::register('ramsey', new RamseyUuidProvider());
 
-        $uuid = Uuid::v1(clockSequence: 0x1234, nodeIdentifier: '010203040506');
+        $uuid = Uuid::v1(null, 0x1234, '010203040506');
 
         $this->assertInstanceOf(Uuid::class, $uuid);
         $this->assertSame(1, $uuid->getVersion());
