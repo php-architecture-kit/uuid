@@ -11,6 +11,7 @@ use PhpArchitecture\Uuid\Foundation\Provider\UuidProviderRegistry;
 use Psr\Clock\ClockInterface;
 use Stringable;
 
+/** @phpstan-consistent-constructor */
 class Uuid implements Stringable
 {
     public const NAMESPACE_DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
@@ -80,7 +81,7 @@ class Uuid implements Stringable
      * Simple factory method for generating a new UUID.
      * 
      * This is the recommended way to create a UUID when you simply need a unique identifier
-     * without specific version requirements. Currently returns UUID v7 (time-ordered, recommended).
+     * without specific version requirements. Currently returns UUID v4 (random).
      * 
      * This method is non-final and can be overridden in your domain-specific {Entity}Id classes
      * to customize UUID generation according to your needs (e.g., different version, custom logic).
@@ -100,7 +101,7 @@ class Uuid implements Stringable
      */
     public static function new(): static
     {
-        return static::v7();
+        return static::v4();
     }
 
     /**

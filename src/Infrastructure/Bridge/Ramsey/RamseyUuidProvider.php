@@ -125,11 +125,11 @@ final class RamseyUuidProvider extends UuidProvider implements PredefinedProvide
     {
         return [
             'v1' => 0.9,
-            'v3' => 1.0,
-            'v4' => 1.0,
-            'v5' => 1.0,
+            'v3' => 0.95, # it's full supported but it's slower than symfony/uid
+            'v4' => 0.95, # it's full supported but it's slower than symfony/uid
+            'v5' => 0.95, # it's full supported but it's slower than symfony/uid
             'v6' => 0.9,
-            'v7' => 1.0,
+            'v7' => 0.95, # it's full supported but it's slower than symfony/uid
             'v8' => 1.0,
             'validate' => 1.0,
         ];

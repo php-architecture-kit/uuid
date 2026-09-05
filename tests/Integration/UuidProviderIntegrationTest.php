@@ -35,14 +35,14 @@ class UuidProviderIntegrationTest extends TestCase
     }
 
     #[Test]
-    public function uuidNewDelegatesToV7(): void
+    public function uuidNewDelegatesToV4(): void
     {
         UuidProviderRegistry::register('ramsey', new RamseyUuidProvider());
 
         $uuid = Uuid::new();
 
         $this->assertInstanceOf(Uuid::class, $uuid);
-        $this->assertSame(7, $uuid->getVersion());
+        $this->assertSame(4, $uuid->getVersion());
     }
 
     #[Test]

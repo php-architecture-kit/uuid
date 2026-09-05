@@ -120,7 +120,7 @@ final class SymfonyUuidProvider extends UuidProvider implements PredefinedProvid
             'v6' => class_exists(\Symfony\Component\Uid\UuidV6::class, false) ? 0.66 : 0.0,
             'v7' => class_exists(\Symfony\Component\Uid\UuidV7::class, false) ? 1.0 : 0.0,
             'v8' => 0.0,
-            'validate' => 1.0,
+            'validate' => 0.95, # it's full supported but it's slower than ramsey/uuid
         ];
     }
 }

@@ -25,6 +25,14 @@
         "php": "^7.4 || ^8.0",
         "psr/clock": "^1.0"
     },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "*",
+        "phpmd/phpmd": "*",
+        "phpstan/phpstan": "*",
+        "phpunit/phpunit": "*",
+        "symfony/uid": "*",
+        "ramsey/uuid": "*"
+    },
     "suggest": {
         "ramsey/uuid": "Allows using Ramsey UUID as provider implementation",
         "symfony/uid": "Allows using Symfony UID component as provider implementation"
@@ -34,10 +42,16 @@
             "PhpArchitecture\\Uuid\\": "src/"
         }
     },
-    "extra": {
-        "branch-alias": {
-            "dev-main": "1.1.x-dev"
-        }
+    "scripts": {
+        "code:fix": "vendor/bin/php-cs-fixer --config=tools/php-cs-fixer/php-cs-fixer.php fix",
+        "code:fix:dry": "vendor/bin/php-cs-fixer --config=tools/php-cs-fixer/php-cs-fixer.php check --diff",
+        "code:analyse": "vendor/bin/phpstan analyse src -c tools/phpstan/phpstan.neon",
+        "code:analyse:b": "vendor/bin/phpstan analyse src -c tools/phpstan/phpstan.neon --generate-baseline tools/phpstan/baseline.neon --allow-empty-baseline",
+        "phpunit": "vendor/bin/phpunit --configuration tools/phpunit/phpunit.xml --do-not-record-test-run-history",
+        "phpunit:coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "@phpunit --log-junit var/coverage/phpunit-report.xml --coverage-cobertura var/coverage/phpunit-coverage.xml --coverage-html var/coverage/html"
+        ]
     },
     "minimum-stability": "stable",
     "prefer-stable": true
