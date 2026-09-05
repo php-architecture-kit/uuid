@@ -47,8 +47,8 @@
         "code:fix:dry": "vendor/bin/php-cs-fixer --config=tools/php-cs-fixer/php-cs-fixer.php check --diff",
         "code:analyse": "vendor/bin/phpstan analyse src -c tools/phpstan/phpstan.neon",
         "code:analyse:b": "vendor/bin/phpstan analyse src -c tools/phpstan/phpstan.neon --generate-baseline tools/phpstan/baseline.neon --allow-empty-baseline",
-        "phpunit": "vendor/bin/phpunit --configuration tools/phpunit/phpunit.xml --do-not-record-test-run-history",
-        "phpunit:coverage": [
+        "test": "vendor/bin/phpunit --configuration tools/phpunit/phpunit.xml --do-not-record-test-run-history",
+        "test:coverage": [
             "@putenv XDEBUG_MODE=coverage",
             "@phpunit --log-junit var/coverage/phpunit-report.xml --coverage-cobertura var/coverage/phpunit-coverage.xml --coverage-html var/coverage/html"
         ]
