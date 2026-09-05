@@ -22,7 +22,7 @@
         "source": "https://github.com/php-architecture-kit/uuid"
     },
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.0",
         "psr/clock": "^1.0"
     },
     "require-dev": {
