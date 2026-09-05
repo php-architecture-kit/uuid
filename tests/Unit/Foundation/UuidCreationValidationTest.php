@@ -17,7 +17,7 @@ class UuidCreationValidationTest extends TestCase
         $this->expectException(InvalidUuidCreationArgumentException::class);
         $this->expectExceptionMessage('Clock sequence must be between 0 and 16383');
 
-        Uuid::v1(clockSequence: -1);
+        Uuid::v1(null, -1);
     }
 
     #[Test]
@@ -26,14 +26,14 @@ class UuidCreationValidationTest extends TestCase
         $this->expectException(InvalidUuidCreationArgumentException::class);
         $this->expectExceptionMessage('Clock sequence must be between 0 and 16383');
 
-        Uuid::v1(clockSequence: 16384);
+        Uuid::v1(null, 16384);
     }
 
     #[Test]
     public function v1AcceptsValidClockSequenceRange(): void
     {
-        $uuid0 = Uuid::v1(clockSequence: 0);
-        $uuidMax = Uuid::v1(clockSequence: 16383);
+        $uuid0 = Uuid::v1(null, 0);
+        $uuidMax = Uuid::v1(null, 16383);
 
         $this->assertInstanceOf(Uuid::class, $uuid0);
         $this->assertInstanceOf(Uuid::class, $uuidMax);
@@ -45,13 +45,13 @@ class UuidCreationValidationTest extends TestCase
         $this->expectException(InvalidUuidCreationArgumentException::class);
         $this->expectExceptionMessage('Node identifier must be 6 bytes or 12 hex characters');
 
-        Uuid::v1(nodeIdentifier: 'abc'); // too short
+        Uuid::v1(null, null, 'abc'); // too short
     }
 
     #[Test]
     public function v1Accepts6ByteNodeIdentifier(): void
     {
-        $uuid = Uuid::v1(nodeIdentifier: "\x01\x02\x03\x04\x05\x06");
+        $uuid = Uuid::v1(null, null, "\x01\x02\x03\x04\x05\x06");
 
         $this->assertInstanceOf(Uuid::class, $uuid);
     }
@@ -59,7 +59,7 @@ class UuidCreationValidationTest extends TestCase
     #[Test]
     public function v1Accepts12HexCharNodeIdentifier(): void
     {
-        $uuid = Uuid::v1(nodeIdentifier: '010203040506');
+        $uuid = Uuid::v1(null, null, '010203040506');
 
         $this->assertInstanceOf(Uuid::class, $uuid);
     }
@@ -70,7 +70,7 @@ class UuidCreationValidationTest extends TestCase
         $this->expectException(InvalidUuidCreationArgumentException::class);
         $this->expectExceptionMessage('Clock sequence must be between 0 and 16383');
 
-        Uuid::v6(clockSequence: -1);
+        Uuid::v6(null, -1);
     }
 
     #[Test]
@@ -79,14 +79,14 @@ class UuidCreationValidationTest extends TestCase
         $this->expectException(InvalidUuidCreationArgumentException::class);
         $this->expectExceptionMessage('Clock sequence must be between 0 and 16383');
 
-        Uuid::v6(clockSequence: 16384);
+        Uuid::v6(null, 16384);
     }
 
     #[Test]
     public function v6AcceptsValidClockSequenceRange(): void
     {
-        $uuid0 = Uuid::v6(clockSequence: 0);
-        $uuidMax = Uuid::v6(clockSequence: 16383);
+        $uuid0 = Uuid::v6(null, 0);
+        $uuidMax = Uuid::v6(null, 16383);
 
         $this->assertInstanceOf(Uuid::class, $uuid0);
         $this->assertInstanceOf(Uuid::class, $uuidMax);
@@ -98,13 +98,13 @@ class UuidCreationValidationTest extends TestCase
         $this->expectException(InvalidUuidCreationArgumentException::class);
         $this->expectExceptionMessage('Node identifier must be 6 bytes or 12 hex characters');
 
-        Uuid::v6(nodeIdentifier: 'toolong1234567'); // 14 chars - invalid
+        Uuid::v6(null, null, 'toolong1234567'); // 14 chars - invalid
     }
 
     #[Test]
     public function v6Accepts6ByteNodeIdentifier(): void
     {
-        $uuid = Uuid::v6(nodeIdentifier: "\x01\x02\x03\x04\x05\x06");
+        $uuid = Uuid::v6(null, null, "\x01\x02\x03\x04\x05\x06");
 
         $this->assertInstanceOf(Uuid::class, $uuid);
     }
@@ -112,7 +112,7 @@ class UuidCreationValidationTest extends TestCase
     #[Test]
     public function v6Accepts12HexCharNodeIdentifier(): void
     {
-        $uuid = Uuid::v6(nodeIdentifier: 'aabbccddeeff');
+        $uuid = Uuid::v6(null, null, 'aabbccddeeff');
 
         $this->assertInstanceOf(Uuid::class, $uuid);
     }
