@@ -31,7 +31,8 @@
         "phpstan/phpstan": "*",
         "phpunit/phpunit": "*",
         "symfony/uid": "*",
-        "ramsey/uuid": "*"
+        "ramsey/uuid": "*",
+        "phpbench/phpbench": "*"
     },
     "suggest": {
         "ramsey/uuid": "Allows using Ramsey UUID as provider implementation",
@@ -42,7 +43,14 @@
             "PhpArchitecture\\Uuid\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpArchitecture\\Uuid\\Tests\\": "tests/",
+            "PhpArchitecture\\Uuid\\Benchmarks\\": "benchmarks/"
+        }
+    },
     "scripts": {
+        "benchmark": "vendor/bin/phpbench run benchmarks --config=tools/phpbench/phpbench.json --report=by_method",
         "code:fix": "vendor/bin/php-cs-fixer --config=tools/php-cs-fixer/php-cs-fixer.php fix",
         "code:fix:dry": "vendor/bin/php-cs-fixer --config=tools/php-cs-fixer/php-cs-fixer.php check --diff",
         "code:analyse": "vendor/bin/phpstan analyse src -c tools/phpstan/phpstan.neon",
