@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tests\PhpArchitecture\Uuid\Integration;
+namespace PhpArchitecture\Uuid\Tests\Integration;
 
-use PhpArchitecture\Uuid\Bridge\Ramsey\RamseyUuidProvider;
-use PhpArchitecture\Uuid\Bridge\Symfony\SymfonyUuidProvider;
-use PhpArchitecture\Uuid\Provider\UuidProviderRegistry;
-use PhpArchitecture\Uuid\Uuid;
+use PhpArchitecture\Uuid\Infrastructure\Bridge\Ramsey\RamseyUuidProvider;
+use PhpArchitecture\Uuid\Infrastructure\Bridge\Symfony\SymfonyUuidProvider;
+use PhpArchitecture\Uuid\Foundation\Provider\UuidProviderRegistry;
+use PhpArchitecture\Uuid\Foundation\Uuid;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -35,14 +35,14 @@ class UuidProviderIntegrationTest extends TestCase
     }
 
     #[Test]
-    public function uuidNewDelegatesToV7(): void
+    public function uuidNewDelegatesToV4(): void
     {
         UuidProviderRegistry::register('ramsey', new RamseyUuidProvider());
 
         $uuid = Uuid::new();
 
         $this->assertInstanceOf(Uuid::class, $uuid);
-        $this->assertSame(7, $uuid->getVersion());
+        $this->assertSame(4, $uuid->getVersion());
     }
 
     #[Test]
@@ -70,7 +70,7 @@ class UuidProviderIntegrationTest extends TestCase
     {
         UuidProviderRegistry::register('ramsey', new RamseyUuidProvider());
 
-        $uuid = Uuid::v1(clockSequence: 0x1234, nodeIdentifier: '010203040506');
+        $uuid = Uuid::v1(null, 0x1234, '010203040506');
 
         $this->assertInstanceOf(Uuid::class, $uuid);
         $this->assertSame(1, $uuid->getVersion());

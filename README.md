@@ -30,7 +30,7 @@ composer require symfony/uid
 ## Quick Start
 
 ```php
-use PhpArchitecture\Uuid\Uuid;
+use PhpArchitecture\Uuid\Foundation\Uuid;
 
 // Generate a new UUID (defaults to v7)
 $uuid = Uuid::new();
@@ -59,7 +59,7 @@ $uuid->equals($other); // true/false
 ## Creating Domain-Specific IDs
 
 ```php
-use PhpArchitecture\Uuid\Uuid;
+use PhpArchitecture\Uuid\Foundation\Uuid;
 
 final class UserId extends Uuid
 {
@@ -216,10 +216,6 @@ Uuid::NAMESPACE_X500 // '6ba7b814-9dad-11d1-80b4-00c04fd430c8'
 ## Source of Truth
 
 [RFC 9562 - Universally Unique IDentifiers (UUIDs)](https://www.rfc-editor.org/rfc/rfc9562.html)
-
-## Testing
-
-Package is tested with PHPUnit and PHPBench in the [php-architecture-kit/workspace](https://github.com/php-architecture-kit/workspace) project. 
 
 ## License
 
