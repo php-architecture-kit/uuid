@@ -108,7 +108,7 @@ class UuidCreationBench extends Contract
     #[Bench\ParamProviders('provideRamseyOnly')]
     public function benchUuidV1CreationWithRFC9562Parameters(array $params = []): string
     {
-        return Uuid::v1(clock: null, clockSequence: 0x1234, nodeIdentifier: '010203040506')->toString();
+        return Uuid::v1(clockSequence: 0x1234, nodeIdentifier: '010203040506')->toString();
     }
 
     #[Bench\ParamProviders('provideProviders')]
@@ -138,7 +138,7 @@ class UuidCreationBench extends Contract
     #[Bench\ParamProviders('provideRamseyOnly')]
     public function benchUuidV6CreationWithRFC9562Parameters(array $params = []): string
     {
-        return Uuid::v6(clock: null, clockSequence: 0x1234, nodeIdentifier: '010203040506')->toString();
+        return Uuid::v6(clockSequence: 0x1234, nodeIdentifier: '010203040506')->toString();
     }
 
     #[Bench\ParamProviders('provideProviders')]

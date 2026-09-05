@@ -32,7 +32,8 @@
         "phpunit/phpunit": "*",
         "symfony/uid": "*",
         "ramsey/uuid": "*",
-        "phpbench/phpbench": "*"
+        "phpbench/phpbench": "*",
+        "rector/rector": "*"
     },
     "suggest": {
         "ramsey/uuid": "Allows using Ramsey UUID as provider implementation",
@@ -55,6 +56,8 @@
         "code:fix:dry": "vendor/bin/php-cs-fixer --config=tools/php-cs-fixer/php-cs-fixer.php check --diff",
         "code:analyse": "vendor/bin/phpstan analyse src -c tools/phpstan/phpstan.neon",
         "code:analyse:b": "vendor/bin/phpstan analyse src -c tools/phpstan/phpstan.neon --generate-baseline tools/phpstan/baseline.neon --allow-empty-baseline",
+        "code:rector": "vendor/bin/rector process --config tools/phprector/rector.php",
+        "code:rector:dry": "vendor/bin/rector process --dry-run --config tools/phprector/rector.php",
         "test": "vendor/bin/phpunit --configuration tools/phpunit/phpunit.xml --do-not-record-test-run-history",
         "test:coverage": [
             "@putenv XDEBUG_MODE=coverage",

@@ -15,10 +15,10 @@ final class RamseyUuidProvider extends UuidProvider implements PredefinedProvide
 
     public function __construct(?\Ramsey\Uuid\UuidFactory $factory = null)
     {
-        $this->factory = $factory ?? self::getGlobalFactory();
+        $this->factory = $factory ?? $this->getGlobalFactory();
     }
 
-    private static function getGlobalFactory(): \Ramsey\Uuid\UuidFactory
+    private function getGlobalFactory(): \Ramsey\Uuid\UuidFactory
     {
         $factory = \Ramsey\Uuid\Uuid::getFactory();
         assert($factory instanceof \Ramsey\Uuid\UuidFactory);
@@ -46,7 +46,7 @@ final class RamseyUuidProvider extends UuidProvider implements PredefinedProvide
             $node = strlen($nodeIdentifier) === 6 ? bin2hex($nodeIdentifier) : $nodeIdentifier;
         }
 
-        if ($clock !== null) {
+        if ($clock instanceof \Psr\Clock\ClockInterface) {
             return $this->createWithCustomClock($clock)->uuid1($node, $clockSequence)->toString();
         }
 
@@ -83,7 +83,7 @@ final class RamseyUuidProvider extends UuidProvider implements PredefinedProvide
             $node = new \Ramsey\Uuid\Type\Hexadecimal($hex);
         }
 
-        if ($clock !== null) {
+        if ($clock instanceof \Psr\Clock\ClockInterface) {
             return $this->createWithCustomClock($clock)->uuid6($node, $clockSequence)->toString();
         }
 
