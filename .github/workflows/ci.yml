@@ -60,7 +60,7 @@ jobs:
         run: composer install --no-interaction --prefer-dist --no-progress
 
       - name: Run tests
-        run: composer test
+        run: vendor/bin/phpunit --configuration tools/phpunit/phpunit.xml
 
   phpstan:
     name: PHPStan
@@ -92,7 +92,7 @@ jobs:
         run: composer code:analyse
 
   php-cs-fixer:
-    name: PHP-CS-Fixer (dry-run)
+    name: PHP CS Fixer
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
